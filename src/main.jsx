@@ -3,6 +3,8 @@ import {createRoot} from 'react-dom/client';
 import gsap from 'gsap';
 import {ScrollTrigger} from 'gsap/ScrollTrigger';
 import './styles.css';
+import {DesignLab} from './DesignLab';
+import './lab.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -61,4 +63,5 @@ function App(){
     <footer id="contact"><div className="footer-kicker">HAVE SOMETHING WORTH BUILDING?</div><h2>Say <i>hi.</i></h2><button onClick={copy}>{copied?'Copied to clipboard':'joeljeon7@gmail.com'} <Arrow/></button><div className="footer-bottom"><div className="links"><a href="https://github.com/Welddevelopment/Weld" target="_blank" rel="noreferrer">GitHub ↗</a><a href="https://x.com/JoelJeonDev" target="_blank" rel="noreferrer">X / Twitter ↗</a><span className="linkedin-dead"><del>LinkedIn</del><b>Age-gated by LinkedIn</b></span></div><p>About LinkedIn: I hit 1k followers in under a month, connected with YC founders and Forbes 30-under-30s—and then got banned for being underage. Fastest growth curve I’ve ever killed without meaning to.</p><small>Built in an afternoon. Rebuilt with intent. 2026.</small></div></footer>
   </main>
 }
-createRoot(document.getElementById('root')).render(<App/>);
+const labDirection=new URLSearchParams(window.location.search).get('direction');
+createRoot(document.getElementById('root')).render(['arc','lumen','spatial','hybrid'].includes(labDirection)?<DesignLab direction={labDirection}/>:<App/>);
