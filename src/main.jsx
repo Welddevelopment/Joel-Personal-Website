@@ -29,7 +29,7 @@ function App(){
       .set(document.body,{overflow:''})
       .from('.hero-line',{yPercent:110,rotate:2,duration:1.15,stagger:.1},'-=.35')
       .from('.hero-support, .nav, .hero-kicker',{opacity:0,y:20,duration:.75,stagger:.1},'-=.75');
-    gsap.to('.page-progress',{scaleX:1,ease:'none',scrollTrigger:{trigger:'main',start:'top top',end:'bottom bottom',scrub:.2}});
+    gsap.to('.page-progress',{scaleX:1,ease:'none',scrollTrigger:{trigger:root.current,start:'top top',end:'bottom bottom',scrub:.2}});
     gsap.from('.proof-item',{y:50,opacity:0,stagger:.12,ease:'power3.out',scrollTrigger:{trigger:'.proof-ledger',start:'top 82%'}});
     gsap.to('.hero-orbit',{rotate:140,scale:1.12,scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:1}});
     gsap.utils.toArray('.reveal-copy').forEach(el=>gsap.from(el,{opacity:.12,scrollTrigger:{trigger:el,start:'top 78%',end:'bottom 50%',scrub:true}}));
