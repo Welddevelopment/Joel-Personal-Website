@@ -64,4 +64,6 @@ function App(){
   </main>
 }
 const labDirection=new URLSearchParams(window.location.search).get('direction');
-createRoot(document.getElementById('root')).render(['arc','lumen','spatial','hybrid'].includes(labDirection)?<DesignLab direction={labDirection}/>:<App/>);
+const labDirections=['arc','lumen','spatial','hybrid'];
+const page=labDirection==='aether'?<App/>:labDirections.includes(labDirection)?<DesignLab direction={labDirection}/>:<DesignLab direction="hybrid" labMode={false}/>;
+createRoot(document.getElementById('root')).render(page);
