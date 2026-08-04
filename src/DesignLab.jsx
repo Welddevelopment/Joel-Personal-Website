@@ -27,7 +27,7 @@ function PortalHero(){return <header className="portal-hero" id="top">
     <div className="portal-direct"><a href="mailto:joeljeon7@gmail.com">joeljeon7@gmail.com</a><a href="https://github.com/Welddevelopment" target="_blank" rel="noreferrer">GitHub ↗</a></div>
   </div>
   <nav className="portal-grid" aria-label="Explore Joel's work">
-    <a className="portal-card portal-work" href="#story"><img src="/chapter-material.jpg" alt="" aria-hidden="true"/><span>Past work</span><strong>weld.</strong><small>My first product, built from zero.</small><b>↘</b></a>
+    <a className="portal-card portal-work" href="#story"><span>Past work</span><strong>weld.</strong><small>My first product, built from zero.</small><b>↘</b></a>
     <a className="portal-card portal-current" href="#now"><span>Right now</span><strong>Tsenta</strong><small>Leading GTM at a YC S26 company.</small><b>↘</b></a>
     <a className="portal-card portal-hackathons" href="#work"><span>Hackathons</span><strong>Proof under pressure.</strong><small>Two second-place finishes.</small><b>↘</b></a>
     <a className="portal-card portal-story" href="#story"><span>Story</span><strong>How I started.</strong><small>From no code to shipped.</small><b>↘</b></a>
