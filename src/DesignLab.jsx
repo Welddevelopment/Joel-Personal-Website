@@ -24,7 +24,7 @@ function PortalHero(){return <header className="portal-hero" id="top">
   <div className="portal-identity">
     <div className="portal-orbit" aria-hidden="true"><i/><i/><i/></div>
     <h1><span className="portal-title-line">Build first.</span><span className="portal-title-line">Talk after.</span><span className="portal-title-line">Repeat.</span></h1>
-    <p>I build infrastructure for capable, verifiable AI agents: specialists, capabilities, and systems that check real outcomes.</p>
+    <p>I’m Joel Jeon. I build infrastructure for capable, verifiable AI agents: specialists, capabilities, and systems that check real outcomes.</p>
     <div className="portal-direct"><a href="mailto:joeljeon7@gmail.com">joeljeon7@gmail.com</a><a href="https://github.com/Welddevelopment" target="_blank" rel="noreferrer">GitHub ↗</a></div>
   </div>
   <nav className="portal-grid" aria-label="Explore Joel's work">

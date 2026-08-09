@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {createRoot} from 'react-dom/client';
+import {createRoot,hydrateRoot} from 'react-dom/client';
 import gsap from 'gsap';
 import {ScrollTrigger} from 'gsap/ScrollTrigger';
 import './styles.css';
@@ -66,4 +66,6 @@ function App(){
 const labDirection=new URLSearchParams(window.location.search).get('direction');
 const labDirections=['arc','lumen','spatial','hybrid'];
 const page=labDirection==='aether'?<App/>:labDirections.includes(labDirection)?<DesignLab direction={labDirection}/>:<DesignLab direction="hybrid" labMode={false}/>;
-createRoot(document.getElementById('root')).render(page);
+const mountNode=document.getElementById('root');
+if(mountNode.dataset.prerendered==='true'&&!labDirection)hydrateRoot(mountNode,page);
+else createRoot(mountNode).render(page);
