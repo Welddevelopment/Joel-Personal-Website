@@ -70,7 +70,15 @@ const PRODUCTS = {
   }
 };
 
-const THESIS = "I’m exploring how AI moves from isolated agents with fixed tools to dependable autonomous workforces. DAS constructs and proves the right specialist for a role. Capability Factory lets that specialist acquire a missing digital ability while it works, verify the real result and continue. A future Fleet Brain could coordinate those layers against broad company goals.";
+const SUMMARY_PARTS = [
+  ['I’m building toward AI workforces that can ', ''],
+  ['build the right worker', 'das'],
+  [', ', ''],
+  ['acquire missing abilities', 'cf'],
+  [', and ', ''],
+  ['prove the real outcome', 'future'],
+  ['. A future Fleet Brain coordinates the system.', '']
+];
 
 function track(eventName, detail) {
   if (typeof window === 'undefined') return;
@@ -177,18 +185,23 @@ export function RaehyeonIntro() {
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduced) return;
 
-    gsap.from('.rh-hero-kicker, .rh-hero h1 span, .rh-hero-copy > p, .rh-hero .rh-cta', {
-      y: 32,
+    gsap.timeline({defaults: {ease: 'power4.out'}})
+      .from('.rh-hero-kicker', {y: 18, opacity: 0, duration: 0.65})
+      .from('.rh-hero-message', {y: 38, opacity: 0, duration: 0.85, stagger: 0.52}, '-=.2')
+      .from('.rh-hero .rh-cta', {y: 20, opacity: 0, duration: 0.7}, '-=.3');
+    gsap.fromTo('.rh-hero-visual', {scale: 0.72, opacity: 0, rotate: -9}, {scale: 1, opacity: 0.5, rotate: 0, duration: 1.5, ease: 'power4.out'});
+
+    gsap.from('.rh-build-intro', {
+      y: 72,
       opacity: 0,
-      duration: 0.95,
-      stagger: 0.09,
-      ease: 'power4.out'
+      stagger: 0.24,
+      ease: 'power3.out',
+      scrollTrigger: {trigger: '.rh-build-intros', start: 'top 78%', end: 'bottom 55%', scrub: 0.5}
     });
-    gsap.fromTo('.rh-hero-visual', {scale: 0.72, opacity: 0, rotate: -9}, {scale: 1, opacity: 1, rotate: 0, duration: 1.5, ease: 'power4.out'});
 
     gsap.fromTo('.rh-summary-word', {opacity: 0.12}, {
       opacity: 1,
-      stagger: 0.025,
+      stagger: 0.15,
       ease: 'none',
       scrollTrigger: {trigger: '.rh-thesis-copy', start: 'top 72%', end: 'bottom 52%', scrub: 0.45}
     });
@@ -240,10 +253,10 @@ export function RaehyeonIntro() {
 
     <section className="rh-chapter rh-hero" id="intro">
       <div className="rh-hero-copy">
-        <p className="rh-hero-kicker">A personal note for Raehyeon</p>
-        <h1><span>Raehyeon,</span><span>I made this for you.</span></h1>
-        <p>I’m Joel, 15, an AI founder visiting from London. In the last few weeks I built two new agent systems around a question I think we’re both circling: what would make autonomous AI work actually dependable?</p>
-        <ScrollButton target="thesis">Here’s the real short version</ScrollButton>
+        <p className="rh-hero-kicker">A short note, before Wednesday</p>
+        <h1><span className="rh-hero-message">Hi, Raehyeon.</span><span className="rh-hero-message">I’d like to talk.</span></h1>
+        <p className="rh-hero-message rh-intro-message">First, let me show you what I’ve built in the last few weeks.</p>
+        <ScrollButton target="thesis">Show me</ScrollButton>
       </div>
       <div className="rh-hero-visual" aria-hidden="true">
         <div className="rh-visual-glow"/>
@@ -257,11 +270,21 @@ export function RaehyeonIntro() {
     </section>
 
     <section className="rh-chapter rh-thesis" id="thesis">
-      <div className="rh-thesis-index">The idea in one paragraph</div>
-      <p className="rh-thesis-copy">{THESIS.split(' ').map((word, index) => <span className="rh-summary-word" key={`${word}-${index}`}>{word}{' '}</span>)}</p>
+      <div className="rh-build-intros">
+        <article className="rh-build-intro is-cf">
+          <span>First</span><strong>Capability Factory</strong>
+          <p>A way for an AI to notice a missing ability, gain it safely by itself, verify the result and keep going.</p>
+        </article>
+        <article className="rh-build-intro is-das">
+          <span>Then</span><strong>Dynamic Agent Specialisation</strong>
+          <p>A way to turn a plain-English role into hundreds of tested specialist agents, then choose between the best.</p>
+        </article>
+      </div>
+      <div className="rh-thesis-index">The whole idea</div>
+      <p className="rh-thesis-copy">{SUMMARY_PARTS.map(([text, tone], index) => <span className={`rh-summary-word ${tone ? `is-${tone}` : ''}`} key={`${text}-${index}`}>{text}</span>)}</p>
       <div className="rh-thesis-legend">
-        <span><i className="is-das"/>DAS builds the worker</span>
         <span><i className="is-cf"/>CF supplies the missing ability</span>
+        <span><i className="is-das"/>DAS builds the worker</span>
         <span><i className="is-future"/>Fleet Brain coordinates the work</span>
       </div>
       <ScrollButton target="systems" secondary>Explore both systems</ScrollButton>
@@ -270,11 +293,11 @@ export function RaehyeonIntro() {
     <section className="rh-chapter rh-systems" id="systems">
       <header className="rh-section-heading">
         <p>Two distinct technical advances</p>
-        <h2>One builds the right specialist. The other lets it cross a missing-ability gap.</h2>
+        <h2>One lets AI gain a missing ability. The other builds the right specialist.</h2>
       </header>
       <div className="rh-system-grid">
-        <ProductCard kind="das" onOpen={openPanel}/>
         <ProductCard kind="cf" onOpen={openPanel}/>
+        <ProductCard kind="das" onOpen={openPanel}/>
       </div>
       <ScrollButton target="vision" secondary>See how the pieces could connect</ScrollButton>
     </section>
