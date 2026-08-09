@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    {"source": "/raehyeon", "destination": "/raehyeon/index.html"}
+  ]
+}
