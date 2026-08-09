@@ -187,16 +187,18 @@ export function RaehyeonIntro() {
 
     gsap.timeline({defaults: {ease: 'power4.out'}})
       .from('.rh-hero-kicker', {y: 18, opacity: 0, duration: 0.65})
-      .from('.rh-hero-message', {y: 38, opacity: 0, duration: 0.85, stagger: 0.52}, '-=.2')
-      .from('.rh-hero .rh-cta', {y: 20, opacity: 0, duration: 0.7}, '-=.3');
-    gsap.fromTo('.rh-hero-visual', {scale: 0.72, opacity: 0, rotate: -9}, {scale: 1, opacity: 0.5, rotate: 0, duration: 1.5, ease: 'power4.out'});
+      .from('.rh-hero-message', {y: 42, opacity: 0, duration: 1.05, stagger: 0.78}, '-=.1')
+      .from('.rh-hero .rh-cta', {y: 22, opacity: 0, duration: 0.8}, '-=.15');
+    gsap.fromTo('.rh-hero-visual', {scale: 0.72, opacity: 0, rotate: -9, filter: 'blur(22px)'}, {scale: 1, opacity: 0.5, rotate: 0, filter: 'blur(0px)', duration: 3.8, ease: 'power3.out'});
+    gsap.fromTo('.rh-hero-haze', {opacity: 1, backdropFilter: 'blur(20px)'}, {opacity: 0, backdropFilter: 'blur(0px)', duration: 4.1, ease: 'power2.out'});
 
-    gsap.from('.rh-build-intro', {
-      y: 72,
-      opacity: 0,
-      stagger: 0.24,
-      ease: 'power3.out',
-      scrollTrigger: {trigger: '.rh-build-intros', start: 'top 78%', end: 'bottom 55%', scrub: 0.5}
+    gsap.utils.toArray('.rh-build-intro').forEach(panel => {
+      gsap.from(panel.querySelector('.rh-build-content'), {
+        y: 80,
+        opacity: 0,
+        ease: 'power3.out',
+        scrollTrigger: {trigger: panel, start: 'top 82%', end: 'top 30%', scrub: 0.55}
+      });
     });
 
     gsap.fromTo('.rh-summary-word', {opacity: 0.12}, {
@@ -266,18 +268,25 @@ export function RaehyeonIntro() {
         <i className="rh-satellite is-one"/><i className="rh-satellite is-two"/>
         <div className="rh-core"><span>GOAL</span><b>→</b><span>PROOF</span></div>
       </div>
+      <div className="rh-hero-haze" aria-hidden="true"/>
       <div className="rh-scroll-cue">Scroll or click <i/></div>
     </section>
 
     <section className="rh-chapter rh-thesis" id="thesis">
       <div className="rh-build-intros">
         <article className="rh-build-intro is-cf">
-          <span>First</span><strong>Capability Factory</strong>
-          <p>A way for an AI to notice a missing ability, gain it safely by itself, verify the result and keep going.</p>
+          <div className="rh-build-content">
+            <span>First — Capability Factory</span>
+            <strong>A way for AI to gain capabilities by itself.</strong>
+            <p>It notices the exact ability it is missing, acquires it safely, verifies the result and keeps going.</p>
+          </div>
         </article>
         <article className="rh-build-intro is-das">
-          <span>Then</span><strong>Dynamic Agent Specialisation</strong>
-          <p>A way to turn a plain-English role into hundreds of tested specialist agents, then choose between the best.</p>
+          <div className="rh-build-content">
+            <span>Then — Dynamic Agent Specialisation</span>
+            <strong>A way to build the right specialist dynamically.</strong>
+            <p>Describe a role in plain English; DAS builds and tests hundreds of agents, then lets you choose between the best.</p>
+          </div>
         </article>
       </div>
       <div className="rh-thesis-index">The whole idea</div>
