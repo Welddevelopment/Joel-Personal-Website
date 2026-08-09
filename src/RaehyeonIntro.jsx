@@ -29,16 +29,16 @@ const PRODUCTS = {
       'The important outcome is not that every generated agent wins. In the current local evidence, DAS created the winning SaaS-support specialist, but retained the existing procurement and RevOps agents when the challengers did not prove enough improvement. Refusing a fashionable but weaker upgrade is part of the product.'
     ],
     competitors: {
-      intro: 'Plain English in. Hundreds of agents tested. Real workspace performance checked. The best options ready to switch between.',
+      intro: 'DAS does the whole specialist-building loop.',
       headers: ['Product', 'The difference'],
       rows: [
-        ['DAS', 'Builds, tests and ranks complete specialists automatically from a role description.'],
-        ['CrewAI', 'Makes manually configured agents and crews easier to run.'],
-        ['LangChain / LangGraph', 'Provides flexible primitives; humans still design the graph, agents and evaluation loop.'],
-        ['OpenAI Agents SDK', 'Provides agents, tools, handoffs and guardrails; specialist design stays developer-supplied.'],
-        ['Microsoft AutoGen / Magentic-One', 'Coordinates defined agent teams rather than compiling the best specialist.'],
-        ['Agent Forge / visual builders', 'Speeds up manual construction without automating broad candidate search and selection.'],
-        ['Expert manual build', 'An engineer designs, tests and tunes one configuration at a time.']
+        ['DAS', 'Describe a bounded role in plain English. DAS constructs hundreds of complete specialist configurations, narrows them through staged tests, runs the finalists inside a realistic workspace, independently checks the real outcome and lets you activate the best proved option.'],
+        ['CrewAI', 'Makes agents and crews easier to configure and orchestrate; a human still designs the roles, tools, workflow and tests.'],
+        ['LangChain / LangGraph', 'Provides powerful agent and workflow primitives; a human still architects, tunes and compares each specialist.'],
+        ['OpenAI Agents SDK', 'Provides agents, tools, handoffs and guardrails; a human still designs the specialist and proves which setup performs best.'],
+        ['Microsoft AutoGen', 'Coordinates configured agents and teams; a human still builds the workers and judges whether they are actually better.'],
+        ['Agent Forge / visual builders', 'Makes agent construction faster and more visual; a human still explores configurations and decides what wins.'],
+        ['Expert manual build', 'Can produce a great specialist; an expert still designs and tests every iteration one at a time.']
       ]
     }
   },
@@ -63,16 +63,16 @@ const PRODUCTS = {
       'After safe execution, CF reads the target system to prove the intended business state exists. Lost responses are reconciled before retry, ambiguous capabilities can be quarantined, and the exact parent task resumes from its saved state. The capability is retained only with the scope and evidence that made it valid.'
     ],
     competitors: {
-      intro: 'Detect the gap. Gain the capability. Verify the outcome. Resume the goal.',
+      intro: 'Capability Factory does the whole capability-resolution loop.',
       headers: ['Product', 'The difference'],
       rows: [
-        ['Capability Factory', 'Resolves an unforeseen ability gap inside the original goal, then proves and resumes it.'],
-        ['Composio', 'Supplies authenticated tools and session execution; the caller owns the wider task loop.'],
-        ['Pipedream', 'Supplies integrations, MCP tools and workflows; the caller diagnoses and verifies the gap.'],
-        ['Nango', 'Handles authentication and integration infrastructure for known systems.'],
-        ['superglue', 'Builds agent-facing integrations from API surfaces; CF owns the full blocked-goal loop.'],
-        ['Riza', 'Runs generated code safely; it is an execution layer rather than capability resolution.'],
-        ['Custom integration', 'An engineer diagnoses, builds, tests, deploys and restarts the blocked work manually.']
+        ['Capability Factory', 'An agent reaches a missing ability during ordinary work. CF diagnoses the exact gap, reuses or builds the smallest permissioned capability, verifies the real external effect and resumes the original goal—without waiting for a new integration cycle.'],
+        ['Composio', 'Provides dynamic access to authenticated tools; your team still designs the parent task, success proof and failure recovery.'],
+        ['Pipedream', 'Provides thousands of integrations, tools and workflows; your team still diagnoses the gap, assembles the wider loop and verifies the result.'],
+        ['Nango', 'Handles authentication and integration infrastructure; your team still builds the capability logic, outcome checks and task resumption.'],
+        ['superglue', 'Builds and repairs difficult integrations; your team still owns the parent agent’s authority, outcome proof and exact continuation.'],
+        ['Riza', 'Runs AI-generated code safely; your team still identifies the missing capability, creates it, verifies the outcome and resumes the task.'],
+        ['Custom integration', 'Can solve a one-off gap; an engineer still diagnoses, builds, tests, deploys and restarts the blocked work.']
       ]
     }
   }
@@ -168,7 +168,7 @@ function DetailPanel({active, onClose, onSwitch}) {
           <div className="rh-compare-wrap">
             <table className="rh-compare-table">
               <thead><tr>{product.competitors.headers.map(header => <th key={header}>{header}</th>)}</tr></thead>
-              <tbody>{product.competitors.rows.map(row => <tr key={row[0]}><th>{row[0]}</th>{row.slice(1).map((cell, index) => <td key={cell} data-label={product.competitors.headers[index + 1]}>{cell}</td>)}</tr>)}</tbody>
+              <tbody>{product.competitors.rows.map((row, rowIndex) => <tr key={row[0]} className={rowIndex === 0 ? 'is-own' : ''}><th>{row[0]}</th>{row.slice(1).map((cell, index) => <td key={cell} data-label={product.competitors.headers[index + 1]}>{cell}</td>)}</tr>)}</tbody>
             </table>
           </div>
         </>}
