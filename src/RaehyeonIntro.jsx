@@ -29,12 +29,16 @@ const PRODUCTS = {
       'The important outcome is not that every generated agent wins. In the current local evidence, DAS created the winning SaaS-support specialist, but retained the existing procurement and RevOps agents when the challengers did not prove enough improvement. Refusing a fashionable but weaker upgrade is part of the product.'
     ],
     competitors: {
-      intro: 'DAS turns a plain-English role into hundreds of complete candidate agents, narrows them through internal evaluation, tests the finalists inside a realistic workspace to see what they actually do, and lets the user switch between the strongest proved options.',
-      headers: ['Product', 'Core workflow', 'What this means'],
+      intro: 'Plain English in. Hundreds of agents tested. Real workspace performance checked. The best options ready to switch between.',
+      headers: ['Product', 'The difference'],
       rows: [
-        ['DAS', 'Plain-English role → hundreds of complete candidates → internal evaluation → workspace trials → verified best options', 'Most specialist construction and comparison work is automated. The user can inspect and switch among agents that proved themselves.'],
-        ['CrewAI', 'A human configures agents, roles, tools, tasks and the crew or flow; CrewAI makes that system easier to run', 'Manual agent engineering becomes easier, but the specialist still has to be designed, tested and tuned by a human.'],
-        ['LangChain / LangGraph / Forge', 'A human assembles models, tools, state graphs, evaluators and deployment logic from flexible primitives', 'Powerful building blocks, but still expertise-heavy and time-consuming. The framework does not compile the best specialist from a role description.']
+        ['DAS', 'Builds, tests and ranks complete specialists automatically from a role description.'],
+        ['CrewAI', 'Makes manually configured agents and crews easier to run.'],
+        ['LangChain / LangGraph', 'Provides flexible primitives; humans still design the graph, agents and evaluation loop.'],
+        ['OpenAI Agents SDK', 'Provides agents, tools, handoffs and guardrails; specialist design stays developer-supplied.'],
+        ['Microsoft AutoGen / Magentic-One', 'Coordinates defined agent teams rather than compiling the best specialist.'],
+        ['Agent Forge / visual builders', 'Speeds up manual construction without automating broad candidate search and selection.'],
+        ['Expert manual build', 'An engineer designs, tests and tunes one configuration at a time.']
       ]
     }
   },
@@ -59,12 +63,16 @@ const PRODUCTS = {
       'After safe execution, CF reads the target system to prove the intended business state exists. Lost responses are reconciled before retry, ambiguous capabilities can be quarantined, and the exact parent task resumes from its saved state. The capability is retained only with the scope and evidence that made it valid.'
     ],
     competitors: {
-      intro: 'Capability Factory starts with the agent’s original goal, notices the exact ability it is missing, acquires or builds only that capability, verifies the real-world effect and returns the agent to the work it was already doing.',
-      headers: ['Product', 'Core workflow', 'What remains'],
+      intro: 'Detect the gap. Gain the capability. Verify the outcome. Resume the goal.',
+      headers: ['Product', 'The difference'],
       rows: [
-        ['Capability Factory', 'Ordinary goal → diagnose missing ability → reuse or build the smallest capability → permissioned action → external verification → resume', 'The unforeseen gap is resolved inside the original task, without waiting for a new integration cycle.'],
-        ['Composio / Pipedream / Nango', 'Expose known connectors, authenticated tools and execution infrastructure for a developer or agent to call', 'The calling system still selects and wires the tool, handles unsupported gaps, verifies the outcome and resumes the parent goal.'],
-        ['Custom integration work', 'An engineer diagnoses the gap, builds the connector, tests it, deploys it and restarts the blocked workflow', 'Human integration engineering remains in the critical path; CF automates that complete resolution loop.']
+        ['Capability Factory', 'Resolves an unforeseen ability gap inside the original goal, then proves and resumes it.'],
+        ['Composio', 'Supplies authenticated tools and session execution; the caller owns the wider task loop.'],
+        ['Pipedream', 'Supplies integrations, MCP tools and workflows; the caller diagnoses and verifies the gap.'],
+        ['Nango', 'Handles authentication and integration infrastructure for known systems.'],
+        ['superglue', 'Builds agent-facing integrations from API surfaces; CF owns the full blocked-goal loop.'],
+        ['Riza', 'Runs generated code safely; it is an execution layer rather than capability resolution.'],
+        ['Custom integration', 'An engineer diagnoses, builds, tests, deploys and restarts the blocked work manually.']
       ]
     }
   }
@@ -160,7 +168,7 @@ function DetailPanel({active, onClose, onSwitch}) {
           <div className="rh-compare-wrap">
             <table className="rh-compare-table">
               <thead><tr>{product.competitors.headers.map(header => <th key={header}>{header}</th>)}</tr></thead>
-              <tbody>{product.competitors.rows.map(row => <tr key={row[0]}><th>{row[0]}</th><td data-label={product.competitors.headers[1]}>{row[1]}</td><td data-label={product.competitors.headers[2]}>{row[2]}</td></tr>)}</tbody>
+              <tbody>{product.competitors.rows.map(row => <tr key={row[0]}><th>{row[0]}</th>{row.slice(1).map((cell, index) => <td key={cell} data-label={product.competitors.headers[index + 1]}>{cell}</td>)}</tr>)}</tbody>
             </table>
           </div>
         </>}

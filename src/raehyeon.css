@@ -471,8 +471,8 @@ a { color: inherit; text-decoration: none; }
 .rh-compare-table th, .rh-compare-table td { padding: 18px; border: 1px solid var(--line); vertical-align: top; font-size: 13px; line-height: 1.42; }
 .rh-compare-table thead th { color: var(--muted); font: 500 10px/1.2 Geist Mono, monospace; letter-spacing: .06em; text-transform: uppercase; }
 .rh-compare-table thead th:last-child { background: var(--product); color: var(--ink); }
-.rh-compare-table tbody th { width: 18%; color: var(--paper); font-weight: 500; }
-.rh-compare-table tbody td { width: 41%; color: var(--muted); }
+.rh-compare-table tbody th { width: 28%; color: var(--paper); font-weight: 500; }
+.rh-compare-table tbody td { width: 72%; color: var(--muted); }
 .rh-compare-table tbody td:last-child { color: var(--paper); background: rgba(244, 238, 229, .035); }
 .rh-scope-note { margin: 22px 0 0; color: var(--muted); font-size: 11px; line-height: 1.5; }
 
@@ -560,7 +560,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--das); outline-o
   .rh-compare-table tr { display: block; border: 1px solid var(--line); }
   .rh-compare-table th, .rh-compare-table td { width: 100% !important; padding: 14px; border: 0; border-bottom: 1px solid var(--line); display: block; font-size: 12px; }
   .rh-compare-table th { background: rgba(244, 238, 229, .045); color: var(--product) !important; font: 500 10px/1.2 Geist Mono, monospace; letter-spacing: .06em; text-transform: uppercase; }
-  .rh-compare-table td::before { content: attr(data-label); display: block; margin-bottom: 7px; color: var(--muted); font: 500 9px/1 Geist Mono, monospace; letter-spacing: .06em; text-transform: uppercase; }
+  .rh-compare-table td::before { content: none; }
   .rh-compare-table td:last-child { border-bottom: 0; }
 }
 
