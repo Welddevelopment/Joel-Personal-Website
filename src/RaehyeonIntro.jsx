@@ -7,6 +7,34 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const SECTIONS = ['intro', 'thesis', 'systems', 'vision', 'meet'];
 
+export const FOUNDER_INTRO_PROFILES = {
+  raehyeon: {
+    slug: 'raehyeon',
+    first: 'Raehyeon',
+    why: 'Your work across Potentivo and WorldClone sits near the same intersection: AI systems, simulation and evidence from real users.'
+  },
+  heeyoung: {
+    slug: 'heeyoung',
+    first: 'Heeyoung',
+    why: 'You built Parentlyze around real family conversations and expert review. I’m interested in how you decide what AI may conclude and what should stay human.'
+  },
+  sean: {
+    slug: 'sean',
+    first: 'Sean',
+    why: 'You seem unusually good at spotting serious builders and creating the room where useful conversations actually happen.'
+  },
+  hyunsik: {
+    slug: 'hyunsik',
+    first: 'Hyunsik',
+    why: 'You shipped a real product young and made a platform constraint part of the architecture. That build-first instinct feels familiar.'
+  },
+  jaehoon: {
+    slug: 'jaehoon',
+    first: 'Jaehoon',
+    why: 'Your work has to close the loop between a model’s claim and what physically happens. I care about that same gap in software systems.'
+  }
+};
+
 const PRODUCTS = {
   das: {
     short: 'DAS',
@@ -88,12 +116,12 @@ const SUMMARY_PARTS = [
   ['. A future Fleet Brain coordinates the system.', '']
 ];
 
-function track(eventName, detail) {
+function track(profile, eventName, detail) {
   if (typeof window === 'undefined') return;
   if (typeof window.plausible === 'function') {
-    window.plausible(eventName, {props: {route: '/raehyeon', detail}});
+    window.plausible(eventName, {props: {route: `/${profile.slug}`, detail}});
   } else if (typeof window.gtag === 'function') {
-    window.gtag('event', eventName, {page_path: '/raehyeon', detail});
+    window.gtag('event', eventName, {page_path: `/${profile.slug}`, detail});
   }
 }
 
@@ -177,7 +205,7 @@ function DetailPanel({active, onClose, onSwitch}) {
   </div>;
 }
 
-export function RaehyeonIntro() {
+export function RaehyeonIntro({profile = FOUNDER_INTRO_PROFILES.raehyeon}) {
   const root = useRef(null);
   const [activeSection, setActiveSection] = useState('intro');
   const [activePanel, setActivePanel] = useState(null);
@@ -185,9 +213,9 @@ export function RaehyeonIntro() {
 
   useEffect(() => {
     document.body.classList.add('rh-body');
-    track('raehyeon_route_view', 'intro');
+    track(profile, 'founder_route_view', 'intro');
     return () => document.body.classList.remove('rh-body');
-  }, []);
+  }, [profile]);
 
   useGSAP(() => {
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -245,12 +273,12 @@ export function RaehyeonIntro() {
 
   const openPanel = (product, view) => {
     setActivePanel({product, view});
-    track('raehyeon_detail_open', `${product}_${view}`);
+    track(profile, 'founder_detail_open', `${product}_${view}`);
   };
   const closePanel = () => setActivePanel(null);
   const confirm = () => {
     setConfirmed(true);
-    track('raehyeon_connection_ask', 'confirmed');
+    track(profile, 'founder_connection_ask', 'confirmed');
   };
 
   return <main className="rh-page" ref={root}>
@@ -264,7 +292,7 @@ export function RaehyeonIntro() {
     <section className="rh-chapter rh-hero" id="intro">
       <div className="rh-hero-copy">
         <p className="rh-hero-kicker">A short note, before Wednesday</p>
-        <h1><span className="rh-hero-message">Hi, Raehyeon.</span><span className="rh-hero-message">I’d like to talk.</span></h1>
+        <h1><span className="rh-hero-message">Hi, {profile.first}.</span><span className="rh-hero-message">I’d like to talk.</span></h1>
         <p className="rh-hero-message rh-intro-message">First, let me show you what I’ve built in the last few weeks.</p>
         <ScrollButton target="thesis">Show me</ScrollButton>
       </div>
@@ -341,7 +369,7 @@ export function RaehyeonIntro() {
     <section className="rh-chapter rh-meet" id="meet">
       <div className="rh-meet-note">
         <p>Why you</p>
-        <h2>Your work across Potentivo and WorldClone sits near the same intersection: AI systems, simulation and evidence from real users.</h2>
+        <h2>{profile.why}</h2>
       </div>
       <div className="rh-meet-ask">
         <p>I’m not looking for a formal pitch meeting. I’d genuinely like to compare notes on where these ideas overlap and hear how you think about building ambitious AI systems from Korea.</p>
