@@ -6,7 +6,11 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(import.meta.dirname, 'index.html'),
-        raehyeon: resolve(import.meta.dirname, 'raehyeon/index.html')
+        raehyeon: resolve(import.meta.dirname, 'raehyeon/index.html'),
+        heeyoung: resolve(import.meta.dirname, 'heeyoung/index.html'),
+        sean: resolve(import.meta.dirname, 'sean/index.html'),
+        hyunsik: resolve(import.meta.dirname, 'hyunsik/index.html'),
+        jaehoon: resolve(import.meta.dirname, 'jaehoon/index.html')
       }
     }
   }

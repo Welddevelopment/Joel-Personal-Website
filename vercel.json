@@ -1,6 +1,10 @@
 {
   "rewrites": [
-    {"source": "/raehyeon", "destination": "/raehyeon/index.html"}
+    {"source": "/raehyeon", "destination": "/raehyeon/index.html"},
+    {"source": "/heeyoung", "destination": "/heeyoung/index.html"},
+    {"source": "/sean", "destination": "/sean/index.html"},
+    {"source": "/hyunsik", "destination": "/hyunsik/index.html"},
+    {"source": "/jaehoon", "destination": "/jaehoon/index.html"}
   ],
   "headers": [
     {
@@ -9,6 +13,14 @@
     },
     {
       "source": "/raehyeon/index.html",
+      "headers": [{"key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive, nosnippet"}]
+    },
+    {
+      "source": "/(heeyoung|sean|hyunsik|jaehoon)",
+      "headers": [{"key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive, nosnippet"}]
+    },
+    {
+      "source": "/(heeyoung|sean|hyunsik|jaehoon)/index.html",
       "headers": [{"key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive, nosnippet"}]
     }
   ]
