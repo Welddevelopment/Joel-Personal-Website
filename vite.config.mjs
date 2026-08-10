@@ -6,6 +6,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(import.meta.dirname, 'index.html'),
+        capabilityFactory: resolve(import.meta.dirname, 'capability-factory/index.html'),
+        dynamicAgentSpecialisation: resolve(import.meta.dirname, 'dynamic-agent-specialisation/index.html'),
         raehyeon: resolve(import.meta.dirname, 'raehyeon/index.html'),
         heeyoung: resolve(import.meta.dirname, 'heeyoung/index.html'),
         sean: resolve(import.meta.dirname, 'sean/index.html'),

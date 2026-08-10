@@ -1,5 +1,7 @@
 {
   "rewrites": [
+    {"source": "/capability-factory", "destination": "/capability-factory/index.html"},
+    {"source": "/dynamic-agent-specialisation", "destination": "/dynamic-agent-specialisation/index.html"},
     {"source": "/raehyeon", "destination": "/raehyeon/index.html"},
     {"source": "/heeyoung", "destination": "/heeyoung/index.html"},
     {"source": "/sean", "destination": "/sean/index.html"},

@@ -25,4 +25,5 @@
 .lab-das h2{font-size:clamp(50px,5.2vw,84px)}
 .lab-audit h2{margin-bottom:48px}
 .lab-audit-link{display:inline-block;width:max-content;margin-top:36px;padding-bottom:5px;border-bottom:1px solid currentColor;font:600 9px 'JetBrains Mono';letter-spacing:.12em;text-transform:uppercase}
+.lab-now-detail p{margin:0}.lab-audit-actions{display:flex;flex-wrap:wrap;gap:14px 28px}
 @media(max-width:800px){.lab-das h2{font-size:clamp(48px,14vw,68px)}.lab-audit-link{margin-top:28px}}
