@@ -1,5 +1,6 @@
 {
   "rewrites": [
+    {"source": "/linkedin", "destination": "/index.html"},
     {"source": "/capability-factory", "destination": "/capability-factory/index.html"},
     {"source": "/dynamic-agent-specialisation", "destination": "/dynamic-agent-specialisation/index.html"},
     {"source": "/raehyeon", "destination": "/raehyeon/index.html"},
