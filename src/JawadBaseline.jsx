@@ -128,7 +128,7 @@ export function JawadBaseline() {
       <aside className="jj-side" aria-label="Page sections"><span className="jj-side-label">ON THIS PAGE</span>{sections.map(([id,label]) => <a key={id} className={active===id?'is-active':''} href={`#${id}`}>{label}</a>)}</aside>
       <div className="jj-document">
         <header className="jj-header">
-          <a className="jj-logo" href="#top" aria-label="Joel Jeon home">JOEL<span>®</span></a>
+          <a className="jj-logo" href="#top" aria-label="Joel Jeon home">JOEL</a>
           <nav className="jj-nav" aria-label="Main navigation">
             <div className="jj-menu-wrap"><button type="button" aria-expanded={menu==='work'} onClick={() => setMenu(menu==='work'?null:'work')}>Work <span>⌄</span></button>{menu==='work'&&<div className="jj-dropdown"><a href="#now" onClick={()=>setMenu(null)}>Current work</a><a href="#projects" onClick={()=>setMenu(null)}>Projects</a><a href="#past" onClick={()=>setMenu(null)}>Past work</a></div>}</div>
             <div className="jj-menu-wrap"><button type="button" aria-expanded={menu==='page'} onClick={() => setMenu(menu==='page'?null:'page')}>Page <span>⌄</span></button>{menu==='page'&&<div className="jj-dropdown">{sections.map(([id,label])=><a key={id} href={`#${id}`} onClick={()=>setMenu(null)}>{label}</a>)}</div>}</div>
@@ -179,7 +179,8 @@ export function JawadBaseline() {
         <Section id="overlaps" title="Where it overlaps">
           <div className="jj-venn" aria-label="The overlap between product, growth engineering, building, and AI systems"><i className="jj-circle jj-circle-top"/><i className="jj-circle jj-circle-left"/><i className="jj-circle jj-circle-right"/><i className="jj-circle jj-circle-bottom"/><span className="jj-venn-top">Product</span><span className="jj-venn-left">Growth Engineering</span><span className="jj-venn-right">Software & Build</span><span className="jj-venn-bottom">AI Systems</span><div className="jj-venn-me"><Monogram/></div></div>
         </Section>
-        <footer className="jj-final-cta"><p>Still reading? That means something clicked. Let's talk.</p><a data-cur="say hi" href={`mailto:${EMAIL}`}><span className="jj-cta-me">JJ</span><span className="jj-cta-you">+ <i>You</i></span><strong>Send an email</strong></a></footer>
+        <div className="jj-final-cta"><p>Still reading? That means something clicked. Let's talk.</p><a data-cur="say hi" href={`mailto:${EMAIL}`}><span className="jj-cta-me">JJ</span><span className="jj-cta-you">+ <i>You</i></span><strong>Send an email</strong></a></div>
+        <footer className="jj-name-footer" aria-label="Joel"><DotField theme={theme}/><p aria-hidden="true">JOEL</p></footer>
       </div>
     </div>
   </main>;
