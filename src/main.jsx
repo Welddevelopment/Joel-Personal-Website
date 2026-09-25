@@ -5,6 +5,8 @@ import {ScrollTrigger} from 'gsap/ScrollTrigger';
 import './styles.css';
 import {DesignLab} from './DesignLab';
 import './lab.css';
+import {JawadBaseline} from './JawadBaseline';
+import './jawad-baseline.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -65,7 +67,7 @@ function App(){
 }
 const labDirection=new URLSearchParams(window.location.search).get('direction');
 const labDirections=['arc','lumen','spatial','hybrid'];
-const page=labDirection==='aether'?<App/>:labDirections.includes(labDirection)?<DesignLab direction={labDirection}/>:<DesignLab direction="hybrid" labMode={false}/>;
+const page=labDirection==='aether'?<App/>:labDirections.includes(labDirection)?<DesignLab direction={labDirection}/>:<JawadBaseline/>;
 const mountNode=document.getElementById('root');
 if(mountNode.dataset.prerendered==='true'&&!labDirection)hydrateRoot(mountNode,page);
 else createRoot(mountNode).render(page);

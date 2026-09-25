@@ -1,10 +1,11 @@
 import React from 'react';
 import {renderToString} from 'react-dom/server';
 import {DesignLab} from './DesignLab';
+import {JawadBaseline} from './JawadBaseline';
 import {TECHNICAL_ARTICLES,TechnicalArticle} from './TechnicalArticle';
 
 export function renderSeoPage(){
-  return renderToString(<DesignLab direction="hybrid" labMode={false}/>);
+  return renderToString(<JawadBaseline/>);
 }
 
 export function renderTechnicalPage(slug){
