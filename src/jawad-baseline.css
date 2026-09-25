@@ -1,5 +1,4 @@
 @import url('https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&f[]=chillax@400,500,600,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400&display=swap');
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0}button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}button{font:inherit}
 .jj-page{--jj-bg:#fdfdfc;--jj-paper:#fdfdfc;--jj-ink:#1a1a18;--jj-muted:#858581;--jj-line:#e6e6e2;--jj-grid:#f0f0ed;--jj-soft:#f6f6f3;--jj-violet:#7f71b4;min-height:100vh;color:var(--jj-ink);background:linear-gradient(90deg,var(--jj-grid) 1px,transparent 1px),linear-gradient(var(--jj-grid) 1px,transparent 1px),var(--jj-bg);background-size:44px 44px;font:400 14px/1.6 Satoshi,Arial,sans-serif}
 .jj-page[data-theme=dark]{--jj-bg:#161615;--jj-paper:#191918;--jj-ink:#eeeee9;--jj-muted:#aaa9a1;--jj-line:#33332f;--jj-grid:#242421;--jj-soft:#232321;--jj-violet:#a89ad4}
@@ -25,3 +24,4 @@
 .jj-logo{font-family:'Pixelify Sans',monospace;font-weight:400;font-size:24px;letter-spacing:1px}.jj-header-email{max-width:0;padding-inline:0;opacity:0;overflow:hidden;pointer-events:none;margin-left:-16px;transition:max-width .25s,padding .25s,opacity .25s,margin .25s}.jj-header-email.visible{max-width:130px;padding-inline:9px;opacity:1;pointer-events:auto;margin-left:0}.jj-now-tsenta{background:#f3f6ff}.jj-now-tsenta img{display:block;object-fit:contain}
 @media(max-width:760px){.jj-dropdown{left:auto;right:0}.jj-header-email.visible{display:none}}
 .jj-name-footer{position:relative;overflow:hidden;padding:40px 24px 0;border-top:1px solid var(--jj-line)}.jj-name-footer .jj-dots{position:absolute;inset:0;height:100%;border:0}.jj-name-footer>p{position:relative;pointer-events:none;user-select:none;text-align:center;font-family:Chillax,Satoshi,sans-serif;font-size:clamp(4rem,22vw,12rem);font-weight:600;line-height:.8;letter-spacing:-.05em;margin:0 0 -.12em;color:color-mix(in srgb,var(--jj-ink) 9%,transparent);mask-image:linear-gradient(#000 18%,transparent 92%)}
+.jj-header{justify-content:flex-end}.jj-name-top{border-top:0;border-bottom:1px solid var(--jj-line)}

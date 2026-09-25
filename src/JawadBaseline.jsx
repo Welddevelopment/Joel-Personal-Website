@@ -128,7 +128,6 @@ export function JawadBaseline() {
       <aside className="jj-side" aria-label="Page sections"><span className="jj-side-label">ON THIS PAGE</span>{sections.map(([id,label]) => <a key={id} className={active===id?'is-active':''} href={`#${id}`}>{label}</a>)}</aside>
       <div className="jj-document">
         <header className="jj-header">
-          <a className="jj-logo" href="#top" aria-label="Joel Jeon home">JOEL</a>
           <nav className="jj-nav" aria-label="Main navigation">
             <div className="jj-menu-wrap"><button type="button" aria-expanded={menu==='work'} onClick={() => setMenu(menu==='work'?null:'work')}>Work <span>⌄</span></button>{menu==='work'&&<div className="jj-dropdown"><a href="#now" onClick={()=>setMenu(null)}>Current work</a><a href="#projects" onClick={()=>setMenu(null)}>Projects</a><a href="#past" onClick={()=>setMenu(null)}>Past work</a></div>}</div>
             <div className="jj-menu-wrap"><button type="button" aria-expanded={menu==='page'} onClick={() => setMenu(menu==='page'?null:'page')}>Page <span>⌄</span></button>{menu==='page'&&<div className="jj-dropdown">{sections.map(([id,label])=><a key={id} href={`#${id}`} onClick={()=>setMenu(null)}>{label}</a>)}</div>}</div>
@@ -137,7 +136,7 @@ export function JawadBaseline() {
           <a className={`jj-header-email ${showHeaderEmail?'visible':''}`} tabIndex={showHeaderEmail?0:-1} aria-hidden={!showHeaderEmail} href={`mailto:${EMAIL}`}>✉&nbsp; Send an email</a>
           <button className="jj-theme" type="button" onClick={toggleTheme} aria-label={`Switch to ${theme==='light'?'dark':'light'} mode`} title={`Switch to ${theme==='light'?'dark':'light'} mode`}>{theme==='light'?'◐':'◑'}</button>
         </header>
-        <DotField theme={theme}/>
+        <div className="jj-name-footer jj-name-top" aria-label="Joel"><DotField theme={theme}/><p aria-hidden="true">JOEL</p></div>
         <div className="jj-hero">
           <div className="jj-profile"><div className="jj-avatar"><Monogram alternate={avatarFlip}/></div><button type="button" role="switch" aria-checked={avatarFlip} aria-label="Switch initials" data-cur="swap" className="jj-profile-switch" onClick={()=>setAvatarFlip(!avatarFlip)}><span/></button></div>
           <div className="jj-hero-text"><h1>Joel Jeon</h1><Roles/><div className="jj-hero-actions"><a className="jj-pill jj-pill-dark" data-cur="say hi" href={`mailto:${EMAIL}`}>✉ Send an email</a><a className="jj-pill" data-cur="dm" href="https://x.com/JoelJeonDev" target="_blank" rel="me noreferrer">𝕏 DM on X</a><a className="jj-pill" href="#projects">See my work <Arrow/></a></div></div>
